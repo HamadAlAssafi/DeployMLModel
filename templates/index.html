@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<style>
+body {
+			background-color: while;
+			font-family: Verdana;
+			text-align: center;
+		}
+
+		/* Styling the Form (Color, Padding, Shadow) */
+		form {
+			background-color: #fff;
+			max-width: 500px;
+			margin: 50px auto;
+			padding: 30px 20px;
+			box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+		}
+
+		/* Styling form-control Class */
+		.form-control {
+			text-align: left;
+			margin-bottom: 25px;
+		}
+
+		/* Styling form-control Label */
+		.form-control label {
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		/* Styling form-control input,
+		select, textarea */
+		.form-control input,
+		.form-control select,
+		.form-control textarea {
+			border: 1px solid #777;
+			border-radius: 2px;
+			font-family: inherit;
+			padding: 10px;
+			display: block;
+			width: 95%;
+		}
+
+		/* Styling form-control Radio
+		button and Checkbox */
+		.form-control input[type="radio"],
+		.form-control input[type="checkbox"] {
+			display: inline-block;
+			width: auto;
+		}
+
+		/* Styling Button */
+		button {
+			background-color: #05c46b;
+			border: 1px solid #777;
+			border-radius: 2px;
+			font-family: inherit;
+			font-size: 21px;
+			display: block;
+			width: 100%;
+			margin-top: 50px;
+			margin-bottom: 20px;
+		}
+		p {
+			text-align:right;
+		}
+
+::-webkit-input-placeholder { text-align:right; }
+input:-moz-placeholder { text-align:right; }
+
+</style>
+<head>
+    <title> Flower species Prediction Model </title>
+</head>
+
+<h1>Flower species Prediction Model </h1>
+<form action="{{ url_for('main') }}" method="POST">
+    <fieldset>
+        <legend>Input values:</legend>
+        Sepal Length:
+        <input name="sepal_length" type="number" required>
+        <br>
+        <br> 
+        Sepal Width::
+        <input name="sepal_width" type="number" required>
+        <br>
+        <br>
+        Petal Length:
+        <input name="petal_length" type="number" required>
+        <br>
+        <br>
+        Petal Width:
+        <input name="petal_width" type="number" required>
+        <br>
+        <br>
+        <input type="submit">
+    </fieldset>
+</form>
+<br>
+<div class="result" text-algin="center">
+    {% if result == 0 %}
+       
+        <br>
+        <br> <h1 style="text-align: center;"> Predicted Flower species: </h1>
+           <p style="font-size:50px; text-align: center;">Setosa</p>
+    {% endif %}
+</div>
+<div class="result" text-algin="center">
+    {% if result == 1 %}
+       
+        <br>
+        <br> <h1 style="text-align: center;"> Predicted Flower species: </h1>
+           <p style="font-size:50px; text-align: center;">Versicolor</p>
+    {% endif %}
+</div>
+<div class="result" text-algin="center">
+    {% if result == 2 %}
+       
+        <br>
+        <br> <h1 style="text-align: center;"> Predicted Flower species: </h1>
+           <p style="font-size:50px; text-align: center;">Virginica</p>
+    {% endif %}
+</div>
+</html>
